@@ -81,6 +81,17 @@
                     {{ end }}
 
                     {{
+                        if and
+                        (.Site.Params.courses.enable | default false)
+                        (not (.Site.Params.navbar.menus.disableCourses | default false))
+                        }}
+                        <li class="nav-item navbar-text">
+                            <a class="nav-link" href="{{ .Site.BaseURL | relURL }}#courses"
+                                aria-label="courses">Courses</a>
+                        </li>
+                        {{ end }}
+
+                    {{
                     if and
                     (.Site.Params.projects.enable | default false)
                     (not (.Site.Params.navbar.menus.disableProjects | default false))
